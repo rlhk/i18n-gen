@@ -1,0 +1,23 @@
+{
+  "name": "i18n-gen",
+  "version": "0.2.4",
+  "description": "Command line utility to generate i18n translation files from .tsv source to .yml and/or .json format",
+  "scripts": {
+    "test": "npm run compile; i18n-gen sample.tsv",
+    "pretest": "npm run compile",
+    "prepublish": "npm run compile",
+    "compile": "lsc -c -b -m embedded --no-header -o lib/ src/index.ls"
+  },
+  "author": "rlhk.open@gmail.com",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "i18n-yamler": "lib/index.js"
+  },
+  "dependencies": {
+    "prelude-ls": "^1.1.2"
+  },
+  "devDependencies": {
+    "livescript":"^1.5.0"
+  }
+}

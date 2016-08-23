@@ -1,0 +1,25 @@
+#			en	zh	remark
+form
+	okay		OK	確定
+	cancel		CANCEL	取消
+	yes		YES	是
+	no		NO	否
+	back		Back	返回
+	next		Next	下一步
+	submit		Submit	提交
+	checkout		Check Out	確定訂單
+	start-over		Start Over	重新開始
+	male		Male	男
+	female		Female	女
+	submit		Submit	提交
+	edit		Edit	編輯
+	email		Email	電郵
+	tel		Telephone	電話
+
+step
+	one
+		a	STEP-ONE-"A"	步驟一"甲"
+	two
+		a	STEP-TWO-A	步驟二甲
+		b	STEP-TWO-B	步驟二乙
+		c	STEP-TWO-C	步驟二丙
