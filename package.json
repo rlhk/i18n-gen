@@ -1,6 +1,6 @@
 {
   "name": "i18n-gen",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Command line utility to generate i18n translation files from .tsv source to .yml and/or .json format",
   "scripts": {
     "test": "npm run compile; i18n-gen sample.tsv",
