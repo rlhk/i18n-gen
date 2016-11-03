@@ -1,14 +1,19 @@
 {
   "name": "i18n-gen",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Command line utility to generate i18n translation files from .tsv source to .yml and/or .json format",
   "scripts": {
-    "test": "npm run compile; i18n-gen sample.tsv",
+    "test": "npm run compile && ./lib/index.js sample.tsv",
+    "clean": "rimraf dist",
     "pretest": "npm run compile",
     "prepublish": "npm run compile",
     "compile": "lsc -c -b -m embedded --no-header -o lib/ src/index.ls"
   },
-  "author": "rlhk.open@gmail.com",
+  "author": "Roger Lam <rlhk.open@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rlhk/i18n-gen.git"
+  },
   "license": "MIT",
   "preferGlobal": true,
   "bin": {
@@ -18,6 +23,7 @@
     "prelude-ls": "^1.1.2"
   },
   "devDependencies": {
+    "rimraf": "^2.4.3",
     "livescript":"^1.5.0"
   }
 }
