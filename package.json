@@ -1,6 +1,6 @@
 {
   "name": "i18n-gen",
-  "version": "0.3.5",
+  "version": "0.3.62",
   "description": "Command line utility to generate i18n translation files from remote (Google Spreadsheets) .tsv source to .yml and/or .json format",
   "scripts": {
     "test": "npm run compile && ./lib/index.js -s https://docs.google.com/spreadsheets/d/1NO-w7UKhIwWCT4VymBnH7xk6VCUKECqB5XNrwt49rUA/pub?output=tsv",

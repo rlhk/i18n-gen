@@ -4,7 +4,7 @@
 if process.argv.length > 2
   src-tsv = process.argv.2
 
-version = '0.3.5'
+version = '0.3.62'
 msg = (m) -> console.log "i18n-gen (#{version}): #{m}"
 fs = require 'fs'
 download = require 'download'
@@ -30,7 +30,8 @@ tsv-to-i18n-yamls = (raw-text, dest-folder) ->
                   key-index = line-items |> find-index -> it != ''
                   unless is-type 'Undefined', key-index
                     indent-n-key = "#{'  ' * key-index}#{line-items[key-index]}"
-                    line = "#{indent-n-key}: \"#{line-items[locales[lang]]}\""
+                    value = line-items[locales[lang]].replace(/\"/gi,'\\\"')
+                    line = "#{indent-n-key}:" + (if value then " \"#{value}\"" else '')
               |> join '\n'
     output-file = "#{dest-folder}/#{lang}.i18n.yml"
     msg "\t -> #{output-file}"
