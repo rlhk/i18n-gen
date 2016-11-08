@@ -1,15 +1,13 @@
 ``#!/usr/bin/env node``
 
 { reject, each, keys, map, elem-index, find-index, join, is-type, compact, concat } = require 'prelude-ls'
-if process.argv.length > 2
-  src-tsv = process.argv.2
-
-version = '0.3.62'
-msg = (m) -> console.log "i18n-gen (#{version}): #{m}"
+{ name, version } = require '../package'
 fs = require 'fs'
 download = require 'download'
 download-status = require 'download-status'
 mkdirp = require 'mkdirp'
+
+msg = (m) -> console.log "#{name} (#{version}): #{m}"
 
 tsv-to-i18n-yamls = (raw-text, dest-folder) ->
   [ header, ...lines ] = raw-text.toString!split '\r\n'
@@ -75,12 +73,12 @@ gen-i18n-yamls-from-url = (url, dest-folder)->
         msg "Error creating destination folder: #{dest-folder}"
       else
         msg "Created destination folder: #{dest-folder}"
-        msg "Getting .tsv from: #{url}. Target folder: #{dest-folder}"
+        msg "Getting source TSV file from: #{url}"
         download url
           .then (data)->
             tsv-to-i18n-yamls(data.toString!, dest-folder)
 
 argv = require('minimist')(process.argv.slice(2))
-msg JSON.stringify argv
+# msg JSON.stringify argv
 dest-folder = argv.p || '.'
 gen-i18n-yamls-from-url argv.s, dest-folder
