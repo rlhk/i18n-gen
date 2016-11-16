@@ -28,8 +28,9 @@ tsv-to-i18n-yamls = (raw-text, dest-folder) ->
                   key-index = line-items |> find-index -> it != ''
                   unless is-type 'Undefined', key-index
                     indent-n-key = "#{'  ' * key-index}#{line-items[key-index]}"
-                    value = line-items[locales[lang]].replace(/\"/gi,'\\\"')
-                    line = "#{indent-n-key}:" + (if value then " \"#{value}\"" else '')
+                    # value = line-items[locales[lang]].replace(/\"/gi,'\\\"')
+                    value = line-items[locales[lang]]
+                    line = "#{indent-n-key}:" + (if value then " #{value}" else '')
               |> join '\n'
     output-file = "#{dest-folder}/#{lang}.i18n.yml"
     msg "\t -> #{output-file}"
