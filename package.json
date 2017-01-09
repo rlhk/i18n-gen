@@ -1,11 +1,13 @@
 {
   "name": "i18n-gen",
-  "version": "0.3.64",
+  "version": "0.4.0",
   "description": "Command line utility to generate i18n translation files from remote (Google Spreadsheets) .tsv source to .yml and/or .json format",
   "scripts": {
     "test": "npm run compile && ./lib/index.js -p './out' -s https://docs.google.com/spreadsheets/d/1NO-w7UKhIwWCT4VymBnH7xk6VCUKECqB5XNrwt49rUA/pub?output=tsv",
     "test1": "npm run compile && ./lib/index.js -p './out' -s https://docs.google.com/spreadsheets/d/1NO-w7UKhIwWCT4VymBnH7xk6VCUKECqB5XNrwt49rUA/pub?output=tsv",
     "test2": "npm run compile && ./lib/index.js -p './out' -s https://docs.google.com/spreadsheets/d/1NO-w7UKhIwWCT4VymBnH7xk6VCUKECqB5XNrwt49rUA/pub?output=tsv",
+    "test:json": "npm run compile && ./lib/index.js -p './out' -f 'json' -s https://docs.google.com/spreadsheets/d/1NO-w7UKhIwWCT4VymBnH7xk6VCUKECqB5XNrwt49rUA/pub?output=tsv",
+    "test:json-2": "npm run compile && ./lib/index.js -p ./src/locales -f 'json' -s 'https://docs.google.com/spreadsheets/d/1acULlTbcxPOb6KNPWAbHryAmIerJuQnxbpL61F-vs0s/pub?gid=0&single=true&output=tsv'",
     "clean": "rimraf dist",
     "pretest": "npm run compile",
     "prepublish": "npm run compile",

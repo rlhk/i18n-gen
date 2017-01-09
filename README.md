@@ -5,11 +5,21 @@ Google spreadsheet is probably the simplest way for small team to maintain i18n 
 ## Usage
 
   `npm install i18n-gen -g`
-  
+
   `i18n-gen -p './out' -s https://docs.google.com/spreadsheets/d/1NO-w7UKhIwWCT4VymBnH7xk6VCUKECqB5XNrwt49rUA/pub?output=tsv`
 
-  Then you should have the following files generated:
+  Then you should have the following files generated (default to yaml format):
+
   `./out/en.i18n.yml`
+
   `./out/zh.i18n.yml`
+
+  JSON option
+
+  `i18n-gen -p './out' -f 'json', -s https://docs.google.com/spreadsheets/d/1NO-w7UKhIwWCT4VymBnH7xk6VCUKECqB5XNrwt49rUA/pub?output=tsv`
+
+  Output:
+
   `./out/en.json`
+
   `./out/zh.json`
