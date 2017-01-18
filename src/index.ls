@@ -32,6 +32,8 @@ tsv-to-i18n = (raw-text, dest-folder, format) ->
                       indent-n-key = "#{'  ' * key-index}#{line-items[key-index]}"
                       # value = line-items[locales[lang]].replace(/\"/gi,'\\\"')
                       value = line-items[locales[lang]]
+                      if /^[\{\[]/.test(value) # handles value starting with special yaml character
+                        value = "'#{value}'" # add single quote
                       line = "#{indent-n-key}:" + (if value then " #{value}" else '')
                 |> join '\n'
       output-file = "#{dest-folder}/#{lang}.i18n.yml"
@@ -54,7 +56,7 @@ tsv-to-i18n = (raw-text, dest-folder, format) ->
                       prefix-keys := [] # reset prefix-keys array
                     if compacted-items.length == 1 # line with only one prefix-key
                       prefix-keys[key-index] = compacted-items[0] # replace prefix-keys
-                    if compacted-items.length > 1 # line containing bottom level key and lang value
+                    if compacted-items.length > 1 # line containing leave level key and lang value
                       this-key = compacted-items[0]
                       this-value = line-items[locales[lang]].replace(/\"/gi,'\\\"') # escape double quote '"'
                       json-line := "  \"#{( concat [ prefix-keys, [ this-key ] ] |> join '.' )}\" : \"#{this-value}\""
