@@ -1,2 +1,1 @@
-- Command line options
 - Use as JS library
