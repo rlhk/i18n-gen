@@ -1,6 +1,6 @@
 {
   "name": "i18n-gen",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": "Roger LAM <rlhk.open@gmail.com>",
   "description": "Command line utility to generate i18n translation files from remote (Google Spreadsheets) .tsv source to .yml and/or .json format",
   "keywords": [

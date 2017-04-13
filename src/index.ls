@@ -76,10 +76,14 @@ data-to-i18n = (data-rows, dest-folder, format) ->
                       prefix-keys := [] # reset prefix-keys array
                     if compacted-items.length == 1 # line with only one prefix-key
                       prefix-keys[key-index] = compacted-items[0] # replace prefix-keys
-                    if compacted-items.length > 1 # line containing leave level key and lang value
+                    if compacted-items.length > 0 # line containing leave level key and lang value
                       this-key = compacted-items[0]
                       this-value = line-items[locales[lang]].replace(/\"/gi,'\\\"') # escape double quote '"'
-                      json-line := "  \"#{( concat [ prefix-keys, [ this-key ] ] |> join '.' )}\" : \"#{this-value}\""
+                      if compacted-items.length > 1 then
+                        json-line := "  \"#{( concat [ prefix-keys, [ this-key ] ] |> join '.' )}\" : \"#{this-value}\""
+                      # handles empty translation value
+                      if compacted-items.length == 1 then
+                        json-line := "  \"#{( prefix-keys |> join '.' )}\" : \"#{this-value}\""
                     return json-line
                 |> reject -> it == '' # remove empty rows
                 |> join ',\n'
