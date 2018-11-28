@@ -1,8 +1,8 @@
 {
   "name": "i18n-gen",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "author": "Roger LAM <rlhk.open@gmail.com>",
-  "description": "Command line utility to generate i18n translation files from remote (Google Spreadsheets) .tsv source to .yml and/or .json format",
+  "description": "Command line utility for i18n JSON/YAML generation, from remote (Google Spreadsheets) .tsv source",
   "keywords": [
     "i18n",
     "localization",
@@ -32,7 +32,7 @@
   "dependencies": {
     "download": "^5.0.2",
     "download-status": "^2.2.1",
-    "exceljs": "^0.2.39",
+    "exceljs": "1.6.3",
     "lodash": "^4.17.4",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "istanbul": "^0.4.5",
     "livescript": "^1.5.0",
-    "mocha": "^3.2.0",
+    "mocha": "^5.2.0",
     "rimraf": "^2.4.3",
     "sinon": "^1.17.7"
   }
