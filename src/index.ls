@@ -56,7 +56,7 @@ data-to-i18n = (data-rows, dest-folder, format) ->
                 |> map (line) ->
                     compose-yaml-line line, locales[lang]
                 |> join '\n'
-      out-file-path = "#{dest-folder}/#{lang}.i18n.yml"
+      out-file-path = "#{dest-folder}/#{lang}.yml"
       msg "\t -> #{out-file-path}"
       fs .write-file-sync out-file-path, yaml-rows, { flag: 'w'}
 
